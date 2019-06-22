@@ -53,7 +53,7 @@ export class CartDBProvider {
               [], 
               function(tx, result) {
                 if(result.rows.length) {
-                  resolve(result.rows[0].id_cart);
+                  resolve(result.rows.item(0).id_cart);
                   return;
                 }
                 reject('There is no cart.');

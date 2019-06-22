@@ -52,10 +52,10 @@ export class OrderDBProvider {
               [], 
               function(tx, result) {
                 if(result.rows.length) {
-                  let row = result.rows[0];
+                  let row = result.rows.item(0);
                   row.data = JSON.parse(row.data);
 
-                  resolve(result.rows[0]);
+                  resolve(result.rows.item(0));
                   return;
                 }
                 reject('There is no order.');
@@ -114,7 +114,7 @@ export class OrderDBProvider {
 
             if(result.rows.length) {
               for(let i = 0; i < result.rows.length; i++) {
-                let row = result.rows[i];
+                let row = result.rows.item(i);
                 row.data = JSON.parse(row.data);
                 orders.push(row);
               }

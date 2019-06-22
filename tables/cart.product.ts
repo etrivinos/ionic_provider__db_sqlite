@@ -148,7 +148,7 @@ export class CartProductDBProvider {
 
             if(result.rows.length) {
               for(let i = 0; i < result.rows.length; i++) {
-                let item = result.rows[i];
+                let item = result.rows.item(i);
                 item.data   = JSON.parse(item.data);
                 item.total  = item.price * item.quantity;
 
@@ -184,7 +184,7 @@ export class CartProductDBProvider {
             let product = {};
 
             if(result.rows.length) {
-              let item  = result.rows[0];
+              let item  = result.rows.item(0);
               item.data = JSON.parse(item.data);
               product   = item;
             }
